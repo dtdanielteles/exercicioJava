@@ -7,7 +7,7 @@ public class HelloWorld {
     public static void main(String [] args){
         // Declaração de variáveis
         String nome;
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
 
         /*
         Saída em texto
