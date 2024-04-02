@@ -1,4 +1,4 @@
-package aula01;
+package aula02;
 
 // import java.util.Scanner;
 import javax.swing.JOptionPane;
