@@ -12,12 +12,12 @@ public class ValorLogico {
     }
 
     static float lerFloat (String msg) {
-        String str = JOptionPane.showInputDialog(null, msg);
+        String str = JOptionPane.showInputDialog(msg);
         float f = Float.parseFloat(str);
         return f;
     }
 
     static void verifica (float a, float b, float c) {
-        JOptionPane.showMessageDialog(null, a * a == (b * b + c * c));
+        JOptionPane.showMessageDialog(null, "O resultado logico eh " + (a * a == (b * b + c * c))3);
     }
 }
