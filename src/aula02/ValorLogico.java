@@ -18,6 +18,6 @@ public class ValorLogico {
     }
 
     static void verifica (float a, float b, float c) {
-        JOptionPane.showMessageDialog(null, "O resultado logico eh " + (a * a == (b * b + c * c))3);
+        JOptionPane.showMessageDialog(null, "O resultado logico eh " + (a * a == (b * b + c * c)));
     }
 }
