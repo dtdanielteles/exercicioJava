@@ -4,34 +4,47 @@ import java.util.Scanner;
 
 public class Produtos {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] produtos = new String[3];
-        String[] lojas = new String[2];
-        int[][] matriz = new int[2][3];
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite os nomes da lojas: ");
-        for (int i = 0; i < lojas.length; i++){
-            lojas[i] = sc.nextLine();
-        }
+        // Entrada dos nomes das lojas
+        System.out.println("Digite os nomes das lojas separados por espaço:");
+        String lojasInput = scanner.nextLine();
+        String[] lojas = lojasInput.split(" ");
 
-        System.out.println("Digite os nomes dos produtos: ");
-        for (int i = 0; i < produtos.length; i++){
-            produtos[i] = sc.nextLine();
-        }
+        // Entrada dos nomes dos produtos
+        System.out.println("Digite os nomes dos produtos separados por espaço:");
+        String produtosInput = scanner.nextLine();
+        String[] produtos = produtosInput.split(" ");
 
-        System.out.println("Informe a matriz booleana: ");
-        for (int i = 0; i < lojas.length; i++){
-            for (int j = 0; j < produtos.length; j++){
-                matriz[i][j] = sc.nextInt();
+        // Criação da matriz booleana
+        boolean[][] matriz = new boolean[lojas.length][produtos.length];
+        System.out.println("Digite a matriz booleana (linhas separadas por espaço e valores separados por vírgula):");
+        for (int i = 0; i < lojas.length; i++) {
+            String linha = scanner.nextLine();
+            String[] valores = linha.split(",");
+            for (int j = 0; j < produtos.length; j++) {
+                matriz[i][j] = Boolean.parseBoolean(valores[j].trim());
             }
         }
 
-        for (int i = 0; i < lojas.length; i++){
-            for (int j = 0; j < produtos.length; j++){
-                if (matriz[i][j] == 1){
-                    System.out.println(lojas[i] + " " + produtos[j]);
+        // Impressão dos resultados
+        for (int i = 0; i < lojas.length; i++) {
+            System.out.print(lojas[i] + ": ");
+
+            boolean primeiroProduto = true;
+            for (int j = 0; j < produtos.length; j++) {
+                if (matriz[i][j]) {
+                    if (!primeiroProduto) {
+                        System.out.print(", ");
+                    }
+                    System.out.print(produtos[j]);
+                    primeiroProduto = false;
                 }
             }
+
+            System.out.println(); // Pula para a próxima linha após listar os produtos de uma loja
         }
+
+        scanner.close();
     }
 }
